@@ -4,7 +4,7 @@ import styles from './Pagination.module.css';
 const RESULTS_PER_PAGE = 20;
 
 export default function Pagination({page, onPrev, onNext}) {
-    const [totalPages, setTotalPages] = useState(Math.ceil(page.count/RESULTS_PER_PAGE));
+    const [totalPages, setTotalPages] = useState(0);
     const [current, setCurrent] = useState(1);
 
     const getNextPage = () => {

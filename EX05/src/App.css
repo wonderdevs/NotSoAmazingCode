@@ -17,6 +17,8 @@ footer {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  padding: 10px 0;
+  border-bottom: 1px dashed rgba(233,233,233,0.4);
 }
 
 
