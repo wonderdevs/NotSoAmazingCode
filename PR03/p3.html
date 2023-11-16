@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Practica 3</title>
+        <meta name="viewport" content="width-device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com"> <!--Fuentes de GoogleFonts-->
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Playfair+Display&family=Roboto:wght@100&display=swap" rel="stylesheet">
+        <script>
+        function success(){ //funcion para borrar el input y el botón y mostrar el texto en HTML de success.
+                document.getElementById('email').style.display="none";
+                document.getElementById('boton').style.display="none";
+                document.getElementById('success').style.display="inline";
+            }
+            function dia(){ //funcion para que la página web se vea bien de día, con fondo blanco, letras negras, escondiendo el botón de noche y mostrando el botón de dia.
+                document.body.style.backgroundColor = "white";
+                document.getElementById('tres').style.color="black";
+                document.getElementById('switchnight').style.display="none";
+                document.getElementById('switchday').style.display="inline";
+            }
+            function noche(){ //funcion para que la página web se vea bien de noche, con fondo negro, letras blancas, escondiendo el botón de día y mostrando el botón de noche.
+                document.body.style.backgroundColor = "black";
+                document.getElementById('tres').style.color="white";
+                document.getElementById('switchday').style.display="none";
+                document.getElementById('switchnight').style.display="inline";
+            }
+            function background(){ //función que recoge la hora del PC y devuelve en función de esta hora la función de dia o de noche
+                var hora = new Date().getHours();
+            if (hora>=8 && hora<19){
+                dia();  
+            }
+            else{
+                noche();
+            }
+            }
+        </script>
+    </head>
+    <body onload="background()"> <!--Cuando el body cargue, llama a la función background que decide si la pagina web se ve en modo día o noche-->
+        <div id="uno">
+            <img src="foto.jpg" alt="foto" id="foto">
+            <div id="texto">
+                <span id="box">Our website is under construction, but we are ready to go! We are preparing something amazing and exciting for you. Special surprise for our subscribers only</span>
+            </div>
+        </div>
+        <div id="dos">
+            <img src="switchday.png" alt="switchday" id="switchday" onclick="noche()"> <!--Cada imagen al hacer click llama a una función, en esta función se esconde la imagen contraria (si es modo día se esconde la imagen del modo noche)-->
+            <img src="switch2night.png" alt="switchnight" id="switchnight" onclick="dia()">
+            <div id="tres">
+                <p>Let's meet</p>
+                <h1>NEW START<br>IS COMING</h1>
+                <h2>Notify Me When It's Ready</h2>
+            <form action="javascript:void(0)" onsubmit="success()"> <!--Cuando se envia el formulario se llama a la función success que mostrará el mensaje y borrará el input y el botón-->
+                <div id="formu">
+                    <input id="email" type="email" placeholder="Enter a valid email address" required/>
+                    <input type="submit" name="notify me" value="NOTIFY ME" id="boton"/>
+                    <p id="success" hidden>SUCCESS</p> <!--Declaramos que en principio el mensaje success se encuentra escondido, en la función success() se mostrará el mensaje-->
+                </div>
+            </form>
+            </div>
+        </div>
+    </body>
+</html>
+

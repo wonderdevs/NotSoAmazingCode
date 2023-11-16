@@ -1,0 +1,269 @@
+<html>
+<head>
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400;800&display=swap');
+
+        body {
+            font-family: 'Gabarito', sans-serif;
+        }
+
+        #library {
+            display: flex;
+            flex-wrap: wrap-reverse;
+            justify-content: center;
+            gap: 30px 0;
+            align-items: flex-end;
+        }
+
+        #games {
+            flex: 3 0 400px;
+            justify-content: space-around;
+            padding: 0 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px 20px;
+        }
+
+        .card {
+            width: 320px;
+            height: 360px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0px 2px 5px -3px #0e0e0e;
+            position: relative;
+        }
+        .card img {
+            object-fit: cover;
+            object-position: top;
+            width: 100%;
+            height: 50%;
+        }
+        .card h3 {
+            flex: 1;
+        }
+        .card button {
+            width: 100%;
+            padding: 13px;
+            cursor: pointer;
+            font-family: 'Gabarito', sans-serif;
+            font-size: 1.2em;
+        }
+        .card .score {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-weight: bold;
+            background: #ffda11;
+            padding: 13px 6px;
+            border-radius: 50%;
+            font-family: monospace;
+            font-size: 1.2em;
+        }
+
+        #detail {
+            display: flex;
+            flex-direction: column;
+            flex: 1 1 0;
+            min-width: 420px;
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px -3px #0e0e0e;
+            overflow: hidden;
+            visibility: hidden;
+            position: sticky;
+            top: 20px;
+            background: rgb(249, 249, 249);
+        }
+        #detail.show {
+            visibility: visible;   
+        }
+        #detail::after{
+            content: "Select a game to view details";
+            text-align: center;
+            opacity: 0.5;
+            font-size: 2em;
+            visibility: visible;
+            display: block;
+            position: absolute;
+            width: 100%;
+            top: 0;
+        }
+        #detail.show::after {
+            visibility: hidden;   
+        }
+        #detail img {
+            width: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+        #detail-body {
+            padding: 10px;
+        }
+        #detail-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 2;
+        }
+
+        #devs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .badge {
+            padding: 18px;
+            background-color: #9aaaff;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Games</h1>
+    <div id="library">
+        <div id="games"></div>
+        <div id="detail">
+            <img id="detail-image" alt="game-detail" src="" />
+            <div id="detail-body">
+                <h2 id="detail-title"></h2>
+                <div id="detail-description"></div>
+                <button id="detail-close">Close</button>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <h1>Devs</h1>
+    <div id="devs"></div>
+</body>
+    <script type="text/javascript">
+        //API KEY generated from user Comcious on RAWG (rawg.io/@comcious)
+        const API_KEY = 'b0f871f27756405d8ae08f21a58a3d27'
+        const gamesListApiUrl = `https://api.rawg.io/api/games?key=${API_KEY}`;
+        const gameDevsApiUrl = `https://api.rawg.io/api/developers?key=${API_KEY}`;
+        const gameDetailApiUrl = `https://api.rawg.io/api/games/[GAMEID]?key=${API_KEY}`;
+
+        class Library {
+
+            constructor(){
+                this.games = [];
+                this.developers = [];
+            }
+
+            getGames() {
+                fetch(gamesListApiUrl)
+                    .then(response => response.json())
+                    .then(data => {
+                        this.games = data.results;
+                        let gameList = document.getElementById('games');
+                        this.games.forEach(game => {
+                            let card = new Card(game);
+                            card.addCard(gameList);
+                        });
+                    });
+            }
+
+            
+            getDevelopers() {
+                fetch(gameDevsApiUrl)
+                    .then(response => response.json())
+                    .then(data => {
+                        this.developers = data.results;
+                        let devsList = document.getElementById('devs');
+                        this.developers.forEach(dev => {
+                            let devBadge = document.createElement('span');
+                            devBadge.className = "badge";
+                            devBadge.innerText = dev.name+" ("+dev.games_count+")";
+                            devsList.appendChild(devBadge);
+                        });
+                    });
+            }
+        }
+
+
+        class Card {
+
+            constructor(props) {
+                this.id = props.id;
+                this.name = props.name;
+                this.cover = props.background_image;
+                this.score = props.rating;
+            }
+
+            addCard(shelf) {
+                let item = document.createElement('div');
+                let coverImg = document.createElement('img');
+                let nameTag = document.createElement('h3');
+                let scoreTag = document.createElement('div');
+                let detailButton = document.createElement('button');
+
+                item.className = 'card';
+                scoreTag.className = 'score';
+
+                coverImg.src = this.cover;
+                nameTag.innerText = this.name;
+                scoreTag.innerText = this.score;
+                detailButton.innerText = 'Detail';
+
+                // Using anonymous function (also known as arrow function) to preserve "this" reference of the class.
+                //     "() => FUNCTION"
+                // Otherwise "this" is detailButton within the function, and detailButton has no "showDetail" function.
+                detailButton.addEventListener("click", () => this.showDetail());
+
+                item.appendChild(coverImg)
+                item.appendChild(nameTag)
+                item.appendChild(scoreTag)
+                item.appendChild(detailButton)
+
+                shelf.appendChild(item);
+            }
+
+            showDetail() {
+                let dCont = document.getElementById('detail');
+                if (dCont.getAttribute('detailID') == this.id)
+                    return console.log('Already open');
+                fetch(gameDetailApiUrl.replace('[GAMEID]', this.id))
+                    .then(response => response.json())
+                    .then(data => {
+                        
+                        let dImage = document.getElementById('detail-image');
+                        let dName = document.getElementById('detail-title');
+                        let dDescription = document.getElementById('detail-description');
+                        let dButton = document.getElementById('detail-close');
+
+                        dCont.classList.add('show');
+                        dCont.setAttribute('detailID', this.id);
+                        dImage.src = data.background_image_additional;
+                        dName.innerText = data.name;
+                        dDescription.innerHTML = data.description;
+
+                        dButton.addEventListener("click", () => this.closeDetail());
+                    })
+            }
+
+            closeDetail() {
+                let dCont = document.getElementById('detail');
+                let dImage = document.getElementById('detail-image');
+                let dName = document.getElementById('detail-title');
+                let dDescription = document.getElementById('detail-description');
+
+                dCont.setAttribute('detailID', null);
+                dCont.classList.remove('show');
+                dImage.src = '';
+                dName.innerText = '';
+                dDescription.innerHTML = '';
+            }
+        }
+
+
+        let lib = new Library();
+        lib.getGames();
+        lib.getDevelopers();
+
+    </script>
+</html>

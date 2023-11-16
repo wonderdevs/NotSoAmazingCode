@@ -1,0 +1,29 @@
+body {
+    text-align: center;
+}
+
+#table {
+    margin: 10px auto;
+    display: flex;
+    gap: 20px;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: blueviolet;
+    /*propiedades para ajustar la imagen para ser escondida*/
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position:-200px -300px;
+    border-radius: 4px;
+    border: 1px solid #333131;
+    cursor: pointer;
+    width: 200px;
+    height: 300px;
+    box-shadow: 0px 0px 5px 0px grey;
+}
+
+.show {
+    background-position: 0px 0px;
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Puzzle</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            let dragged;
+            function shuffle(o) {
+                for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+                return o;
+            };
+            function random(){
+                var imageArray = ['F1', 'F2', 'F3', 'F4'];
+                var numbers = [1, 2, 3, 4];
+                var i=0;
+                var random = shuffle(numbers);
+                imageArray.forEach((arr,index) =>{
+                    var pieza=document.createElement("div");
+                    pieza.setAttribute("class",arr);
+                    fotos.appendChild(pieza);
+                    var imag = document.createElement("img");
+                    imag.setAttribute("id", random[index]);
+                    imag.setAttribute("src", "https://picsum.photos/id/"+random[index]+"/200");
+                    imag.setAttribute("draggable", true);
+                    imag.addEventListener("dragstart", dragStart);
+                    // document.addEventListener("dragstart", function( event ) {
+                    //     // store a ref. on the dragged elem
+                    //     dragged = event.target;
+                    //     // make it half transparent
+                    //     event.target.style.opacity = .5;
+                    // }, false);
+                    pieza.appendChild(imag);
+                });
+
+                let slots = document.querySelectorAll('.box');
+                slots.forEach(box => {
+                    box.addEventListener('dragenter', dragEnter)
+                    box.addEventListener('dragover', dragOver);
+                    box.addEventListener('dragleave', dragLeave);
+                    box.addEventListener('drop', drop);
+                    console.log('drop event added to ',box);
+                });
+            }
+
+            function dragStart(e) {
+                e.dataTransfer.setData('text/plain', e.target.id);
+                setTimeout(() => {
+                    e.target.classList.add('hide');
+                }, 0);
+                //ev.dataTransfer.setData("img", ev.target.id);
+            }
+            function dragEnter(e) {
+                e.preventDefault();
+                e.target.classList.add('drag-over');
+            }
+
+            function dragOver(e) {
+                e.preventDefault();
+                e.target.classList.add('drag-over');
+            }
+
+            function dragLeave(e) {
+                e.target.classList.remove('drag-over');
+            }
+
+            function drop(e) {
+                e.target.classList.remove('drag-over');
+                // get the draggable element
+                const id = e.dataTransfer.getData('text/plain');
+                const draggable = document.getElementById(id);
+
+                // add it to the drop target
+                e.target.appendChild(draggable);
+
+                // display the draggable element
+                draggable.classList.remove('hide');
+
+            }
+                //Crear una class que coincida con la class de la imagen correcta.
+            //3. Habilitar drag&drop
+            //4. Hacer un mensaje cuando las imagenes esten en orden correcto.
+            //5. Hacer lo del nombre, guardando el nombre en variable local
+        </script>
+        <style>
+            #fotos{
+                display: inline-flex;
+                flex-wrap: nowrap;
+                border: 1px solid black;
+            }
+            .container{
+                margin: 20px auto;
+                width:400px;
+                height:400px;
+                background-color:#fff;
+                display:grid;
+                grid-template-columns: 200px 200px;
+                grid-row: auto auto;
+                grid-column-gap: 20px;
+                grid-row-gap: 20px;
+            }
+            .box{
+                background-color:#333;
+                padding:20px;
+                border-radius:10px;
+                color:#fff;
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                font-size:40px;
+                font-family:sans-serif;
+            }
+        </style>
+    </head>
+    <body onload="random()">
+        <h1>Puzzle</h1>
+        <div id="fotos">
+
+        </div>
+        <div class="container">
+            <div class="box" class="F1"></div>
+            <div class="box" class="F2"></div>
+            <div class="box" class="F3"></div>
+            <div class="box" class="F4"></div>
+          </div>
+    </body>
+</html>

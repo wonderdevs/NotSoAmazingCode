@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Puzzle</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            let bien = 0;
+            let mal = 0;
+            function allowDrop(ev) { ev.preventDefault(); }
+            function drag(ev) { ev.dataTransfer.setData("text", ev.target.id); }
+            function drop(ev) {
+                ev.preventDefault();
+                let data = ev.dataTransfer.getData("text"); 
+                //ev.target.appendChild(document.getElementById(data));
+                console.log(data); //id del que muevo
+                console.log(ev.target.getAttribute('class'));
+                if(data==ev.target.getAttribute('class')){
+                    ev.target.appendChild(document.getElementById(data));
+                    bien++;
+                    console.log(bien);
+                    setTimeout(check(bien), 1000);  
+                }
+                else{
+                    mal++;
+                    console.warn(mal);
+                }
+            }
+            function check(bien){
+                if(bien == 4){
+                    alert("Buen Trabajo! Has hecho "+mal+" errores.");
+                }
+            }
+
+            function random(){
+                let imageArray = ['F1', 'F2', 'F3', 'F4'];
+                let numbers = [1, 2, 3, 4];
+                
+                function shuffle(o) {
+                    for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+                    return o;
+                };
+                var i=0;
+                var random = shuffle(numbers);
+                let piezas = document.getElementById("fotos");
+                let mesa = document.getElementById("container");
+                imageArray.forEach((arr,index) =>{
+                    let pieza = document.createElement("div");
+                    let hueco = document.createElement("div");
+                    //pieza.setAttribute("class",arr);
+                    piezas.appendChild(pieza);
+                    var imag = document.createElement("img");
+                    imag.setAttribute("src","F"+random[i]+".jpg");
+                    imag.setAttribute("draggable", true);
+                    // imag.setAttribute("ondragstart", "drag(event)");
+                    imag.addEventListener("dragstart", drag);
+                    imag.setAttribute("id", "F"+random[i]);
+                    i++;
+                    pieza.appendChild(imag);
+                });
+
+                var boxes = document.querySelectorAll(".box");
+                boxes.forEach((box)=>{
+                    box.addEventListener("drop", drop);
+                    box.addEventListener("dragover", allowDrop);
+                });
+            }
+            
+            //4. Hacer un mensaje cuando las imagenes esten en orden correcto.
+            //5. Hacer lo del nombre, guardando el nombre en variable local
+        </script>
+        <style>
+            #fotos{
+                display: flex;
+                flex-wrap: wrap;
+                min-height: 50px;
+                border: 1px solid black;
+            }
+            .container{
+                margin: 20px auto;
+                width:400px;
+                height:400px;
+                background-color:#fff;
+                display:grid;
+                grid-template-columns: 200px 200px;
+                grid-row: auto auto;
+                grid-column-gap: 20px;
+                grid-row-gap: 20px;
+            }
+            .F1{
+                background-color:#333;
+                padding:20px;
+                border-radius:10px;
+                color:#fff;
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                font-size:40px;
+                font-family:sans-serif;
+            }
+            .F2{
+                background-color:#333;
+                padding:20px;
+                border-radius:10px;
+                color:#fff;
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                font-size:40px;
+                font-family:sans-serif;
+            }
+            .F3{
+                background-color:#333;
+                padding:20px;
+                border-radius:10px;
+                color:#fff;
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                font-size:40px;
+                font-family:sans-serif;
+            }
+            .F4{
+                background-color:#333;
+                padding:20px;
+                border-radius:10px;
+                color:#fff;
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                font-size:40px;
+                font-family:sans-serif;
+            }
+        </style>
+    </head>
+    <body onload="random()">
+        <h1>Puzzle</h1>
+        <div id="fotos" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+        </div>
+        <div id="container" class="container">
+            <div class="F1 box"></div>
+            <div class="F2 box"></div>
+            <div class="F3 box"></div>
+            <div class="F4 box"></div>
+          </div>
+    </body>
+</html>

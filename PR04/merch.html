@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Soundtracks</title>
+        <meta name="viewport" content="width-device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="styles.css">
+    </head>
+    <body>
+        <header>
+            <div class="navbar">
+                <h1>PLACEHOLDER</h1>
+                <h2><a href="mainpage.html">Games</a></h2>
+                <h2><a href="soundtracks.html">Soundtracks</a></h2>
+                <h2><a href="merch.html">Merchandise</a></h2>
+                <div class="iconos-header">
+                    <div id="carrito">
+                        <div onclick="mostrar()">🛒<span id="contador">0</span></div>
+                        <div id="dropdown" hidden>
+                            <span id="mensaje-carrito" hidden>Your cart is empty</span>
+                            <div id="contenido-carrito"></div>
+                            <div id="acciones-carrito"></div>
+                        </div>
+                    </div>
+                    <div>🧛</div>
+                </div>
+                <div class="hamburguesa" hidden>
+                    <img onclick="openBurger()" src="img/burguer.png" height="24">
+                </div>
+            </div>
+            <div id="meat" hidden>
+                <a href="mainpage.html">Games</a>
+                <a href="soundtracks.html">Soundtracks</a>
+                <a href="merch.html">Merchandise</a>
+                <a href="checkout.html">🛒<span id="contadorBurger">0</span></a>
+                <a href="">🧛</a>
+            </div>
+        </header>
+        <div id="banner">
+            <img src="img/f3.jpg" class="foto">
+        </div>
+        <br>
+        <div id="compras2">
+            <!--Aqui van los productos-->
+            <div class="producto">
+                <img src="img/niermerch.jpg" alt="nier" class="picmerch">
+                <button item="10" class="boton" onclick="comprando(event)">Buy!</button>
+                <!-- <button class="boton" onclick="quitando()">¡restar!</button> -->
+            </div>
+            <div class="producto">
+                <img src="img/nierautomatamerch.jpg" alt="automata" class="picmerch">
+                <button item="11" class="boton" onclick="comprando(event)">Buy!</button>
+                <!-- <button class="boton" onclick="quitando()">¡restar!</button> -->
+            </div>
+            <div class="producto">
+                <img src="img/tloumerch.jpg" alt="tlou" class="picmerch">
+                <button item="12" class="boton" onclick="comprando(event)">Buy!</button>
+                <!-- <button class="boton" onclick="quitando()">¡restar!</button> -->
+            </div>
+            <div class="producto">
+                <img src="img/unchartedmerch.png" alt="uncharted" class="picmerch">
+                <button item="13" class="boton" onclick="comprando(event)">Buy!</button>
+                <!-- <button class="boton" onclick="quitando()">¡restar!</button> -->
+            </div>
+            <div class="producto">
+                <img src="img/p5merch.png" alt="p5" class="picmerch">
+                <button item="14" class="boton" onclick="comprando(event)">Buy!</button>
+            </div>
+            <div class="producto">
+                <img src="img/tlou2merch.png" alt="tlou2" class="picmerch">
+                <button item="17" class="boton" onclick="comprando(event)">Buy!</button>
+            </div>
+        </div>
+        <br>
+        <br>
+        <footer>
+            <!--Aqui van lo del final de pagina-->
+        </footer>
+    </body>
+    <script src="script.js"></script>
+</html>

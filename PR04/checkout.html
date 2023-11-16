@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Main Page</title>
+        <meta name="viewport" content="width-device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="styles.css">
+    </head>
+    <body onload="fillBasket()">
+        <header>
+            <div class="navbar">
+            <h1>PLACEHOLDER</h1>
+            <h2><a href="mainpage.html">Games</a></h2>
+            <h2><a href="soundtracks.html">Soundtracks</a></h2>
+            <h2><a href="merch.html">Merchandise</a></h2>
+            <div class="iconos-header">
+                <div>🧛</div>
+            </div>
+            <div class="hamburguesa" hidden>
+                <img onclick="openBurger()" src="img/burguer.png" height="24">
+                <div></div>
+            </div>
+        </div>
+        <div id="meat" hidden>
+            <a href="mainpage.html">Games</a>
+            <a href="soundtracks.html">Soundtracks</a>
+            <a href="merch.html">Merchandise</a>
+            <a href="">🧛</a>
+        </div>
+        </header>
+        <div class="basketBody">
+            <h1>Your cart 🛒</h1>
+            <ul id="basket">
+                
+            </ul>
+            <div id="total">
+                
+            </div>
+            <button id="botonConfirmar" onclick="localizado()" class="boton3">Confirm!</button>
+        </div>
+        <br>
+        <br>
+        <footer>
+            <!--Aqui van lo del final de pagina-->
+        </footer>
+    </body>
+    <script src="checkout.js"></script>
+</html>

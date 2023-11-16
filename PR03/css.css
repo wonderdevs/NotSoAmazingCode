@@ -1,0 +1,295 @@
+body{
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    margin:0px;
+}
+#foto{
+    width: auto;
+    height: 100%;
+    position: relative;
+}
+#uno{
+    height: 700px;
+    position: relative;
+}
+#texto{
+    color: white;
+    background-color:rgb(255, 70, 131);
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    position: absolute;
+    width: 250px;
+    bottom: 0px;
+    left: 0px;
+}
+#switchday{
+    width: 80px;
+    height: 40px;
+    float: right;
+}
+#switchnight{
+    width: 80px;
+    height: 40px;
+    float: right;
+}
+#dos{
+    width: 50%;
+    height: 100%;
+    margin-top: 10px;
+}
+#tres{
+    width: 70%;
+    margin: 50px;
+    margin-top: 150px;
+}
+h1{
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    font-size: 50pt;
+    margin: 0px;
+}
+#box{
+    font-family: 'Montserrat', sans-serif;
+}
+p{
+    font-family: 'Montserrat', sans-serif;
+}
+#formu{
+    font-family: 'Montserrat', sans-serif;
+}
+h2{
+    font-family: 'Roboto', sans-serif;
+    font-size: 17pt;
+}
+#email{
+    width: 350px;
+    height: 40px;
+}
+#boton{
+    margin-left: 5px;
+    height: 47px;
+    width: 120px;
+    border: none;
+    background-color: rgb(255, 70, 131);
+    color: white;
+}
+form{
+    width: 500px;
+}
+#success{
+    font-size: 25pt;
+    margin: 150px;
+}
+@media(max-width: 1088px){
+    h1{
+        font-size: 45pt;
+    }
+    #email{
+        width: 330px;
+        height: 40px;
+    }
+    #boton{
+        margin-left: 5px;
+        height: 47px;
+        width: 100px;
+        border: none;
+        background-color: rgb(255, 70, 131);
+        color: white;
+    }
+    form{
+        width: 450px;
+    }
+}
+@media(max-width: 1056px){
+    body{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #uno{
+        width: 100%;
+        height: 700px;
+        position: relative;
+    }
+    #foto{
+        width: 450px;
+        height: 700px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #dos{
+        margin-top: 10px;
+        width: 450px;
+        height: auto;
+        
+    }
+    #tres{
+        width: 100%;
+        margin-top: 5px;
+        margin-left: 35px;  
+        
+    }
+    #boton{
+        margin-top: 10px;
+        margin-left: 0px;
+        height: 40px;
+        width: 358px;
+    }
+    #email{
+        width: 358px;
+        height: 40px;
+    }
+    h1{
+        font-size: 30pt;
+        margin: 0px;
+    }
+    h2{
+        font-size: 14pt;
+    }
+    #texto{
+        padding-top: 50px;
+        padding-bottom: 50px;
+        padding-left: 20px;
+        padding-right: 20px;
+        position: absolute;
+        left: 0px;
+        width: 200px;
+        bottom: 0px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #box{
+        font-size: 10pt;
+    }
+    #success{
+        font-size: 15pt;
+        margin: 150px;
+    }
+}
+@media(max-width: 1056px){
+    body{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #uno{
+        width: auto;
+        height: 700px;
+        position: relative;
+    }
+    #foto{
+        width: 450px;
+        height: 700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #dos{
+        margin-top: 10px;
+        width: 450px;
+        height: auto;
+        
+    }
+    #tres{
+        width: 100%;
+        margin-top: 5px;
+        margin-left: 35px;   
+    }
+    #boton{
+        margin-top: 10px;
+        margin-left: 0px;
+        height: 40px;
+        width: 400px;
+    }
+    #email{
+        width: 391px;
+        height: 40px;
+    }
+    h1{
+        font-size: 30pt;
+        margin: 0px;
+    }
+    h2{
+        font-size: 14pt;
+    }
+    #texto{
+        padding-top: 50px;
+        padding-bottom: 50px;
+        padding-left: 20px;
+        padding-right: 20px;
+        position: absolute;
+        bottom: 0px;
+        width: 200px;
+        left: 0px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #box{
+        font-size: 10pt;
+    }
+    #success{
+        font-size: 15pt;
+        margin: 150px;
+    }
+}
+@media(max-width: 537px){
+    body{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 450px;
+        margin: 0px;
+    }
+    form{
+        width: 250px;
+    }
+    #tres{
+        width: 440px;
+        margin-top: 5px;
+        margin-left: 35px;
+    }
+    #uno{
+        width: 450px;
+        height: 700px;
+        margin: 0px;
+        position: relative;
+    }
+    #dos{
+        margin-top: 10px;
+        width: 450px;
+        height: auto;  
+    }
+    #boton{
+        margin-top: 10px;
+        margin-left: 0px;
+        height: 40px;
+        width: 400px;
+    }
+    #email{
+        width: 391px;
+        height: 40px;
+    }
+    #foto{
+        width: 483px;
+        height: 700px;
+        display: block;
+        margin: 0px;
+    }
+    #texto{
+        padding-top: 50px;
+        padding-bottom: 50px;
+        padding-left: 20px;
+        padding-right: 20px;
+        position: absolute;
+        bottom: 0px;
+        width: 200px;
+        left: 0px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

@@ -1,0 +1,48 @@
+<html>
+<head>
+</head>
+<body>
+</body>
+    <script type="text/javascript">
+        const gamesListApiUrl = 'https://api.rawg.io/api/games?key=b0f871f27756405d8ae08f21a58a3d27';
+        const gameDevsApiUrl = 'https://api.rawg.io/api/developers?key=b0f871f27756405d8ae08f21a58a3d27';
+
+        const gamesObj = {
+            games:['a','b','c'],
+            developers: ['dev1', 'dev2'],
+            listGames() {
+                fetch(gamesListApiUrl)
+                    .then(response => response.json())
+                    .then((data) => {
+                        console.log(data.results);
+                        this.games = data.results;
+                        let gameList = document.createElement('ol');
+                        this.games.map((game,index) => {
+                            let item = document.createElement('li');
+                            item.innerText = game.name;
+                            gameList.appendChild(item);
+                        });
+                        document.body.appendChild(gameList);
+                    });
+            },
+            listDevs(){
+                fetch(gameDevsApiUrl)
+                    .then(response => response.json())
+                    .then((data) => {
+                        console.log(data.results);
+                        this.developers = data.results;
+                        let devList = document.createElement('ol');
+                        this.developers.map((dev,index) => {
+                            let item = document.createElement('li');
+                            item.innerText = dev.name;
+                            devList.appendChild(item);
+                        });
+                        document.body.appendChild(devList);
+                    });
+            }
+        }
+
+        gamesObj.listGames();
+        gamesObj.listDevs();
+    </script>
+</html>

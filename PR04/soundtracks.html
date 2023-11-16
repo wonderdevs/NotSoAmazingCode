@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Soundtracks</title>
+        <meta name="viewport" content="width-device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="styles.css">
+    </head>
+    <body>
+        <header>
+            <div class="navbar">
+                <h1>PLACEHOLDER</h1>
+                <h2><a href="mainpage.html">Games</a></h2>
+                <h2><a href="soundtracks.html">Soundtracks</a></h2>
+                <h2><a href="merch.html">Merchandise</a></h2>
+                <div class="iconos-header">
+                    <div id="carrito">
+                        <div onclick="mostrar()">🛒<span id="contador">0</span></div>
+                        <div id="dropdown" hidden>
+                            <span id="mensaje-carrito" hidden>Your cart is empty</span>
+                            <div id="contenido-carrito"></div>
+                            <div id="acciones-carrito"></div>
+                        </div>
+                    </div>
+                    <div>🧛</div>
+                </div>
+                <div class="hamburguesa" hidden>
+                    <img onclick="openBurger()" src="img/burguer.png" height="24">
+                </div>
+            </div>
+            <div id="meat" hidden>
+                <a href="mainpage.html">Games</a>
+                <a href="soundtracks.html">Soundtracks</a>
+                <a href="merch.html">Merchandise</a>
+                <a href="checkout.html">🛒<span id="contadorBurger">0</span></a>
+                <a href="">🧛</a>
+            </div>
+        </header>
+        <div id="banner">
+            <img src="img/f2.jpg" class="foto">
+        </div>
+        <br>
+        <audio id="player" controls hidden>
+            <source id="mp3_source" src="audio/kaine.mp3" type="audio/mpeg">
+        </audio>
+        <div id="compras2">
+            <!--Aqui van los productos-->
+            <div class="producto">
+                <img src="img/niersound.jpg" alt="nier" class="picsound">
+                <button item="5" class="boton" onclick="comprando(event)">Buy!</button>
+                <button class="boton2" onclick="playDemoAudio('audio/kaine.mp3')">Listen!</button>
+            </div>
+            <div class="producto">
+                <img src="img/automatasound.jpg" alt="automata" class="picsound">
+                <button item="6" class="boton" onclick="comprando(event)">Buy!</button>
+                <button class="boton2" onclick="playDemoAudio('audio/grandma.wav')">Listen!</button>
+            </div>
+            <div class="producto">
+                <img src="img/tlousound.jpg" alt="tlou" class="picsound">
+                <button item="7" class="boton" onclick="comprando(event)">Buy!</button>
+                <button class="boton2" onclick="playDemoAudio('audio/island.mp3');  ">Listen!</button>
+            </div>
+            <div class="producto">
+                <img src="img/unchartedsound.jpg" alt="uncharted" class="picsound">
+                <button item="8" class="boton" onclick="comprando(event)">Buy!</button>
+                <button class="boton2" onclick="playDemoAudio('audio/towers.mp3')">Listen!</button>
+            </div>
+            <div class="producto">
+                <img src="img/p5sound.jpeg" alt="p5" class="picsound">
+                <button item="9" class="boton" onclick="comprando(event)">Buy!</button>
+                <button class="boton2" onclick="playDemoAudio('audio/trueself.mp3')">Listen!</button>
+            </div>
+            <div class="producto">
+                <img src="img/tlou2sound.jpg" alt="tlou2" class="picsound">
+                <button item="16" class="boton" onclick="comprando(event)">Buy!</button>
+                <button class="boton2" onclick="playDemoAudio('audio/home.mp3')">Listen!</button>
+            </div>
+        </div>
+        <br>
+        <br>
+        <footer>
+            <!--Aqui van lo del final de pagina-->
+        </footer>
+    </body>
+    <script src="script.js"></script>
+</html>

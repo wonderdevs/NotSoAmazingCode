@@ -1,0 +1,322 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Manrope', sans-serif;
+    cursor: default;
+}
+/*ESTILOS DEL HEADER*/
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 9;
+}
+.navbar{
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+    gap: 5%;
+    align-items: center;
+    padding: 3px 9px;
+    margin: 0px;
+    height: 8vh;
+}
+.navbar h1{
+    color: white;
+    flex: 2;
+    font-size: 1.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.navbar h2{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+}
+.navbar a{
+    color: white;
+    text-decoration: none;
+}
+/*ESTILOS ICONOS PERFIL Y CARRITO*/
+.iconos-header {
+    margin-right: 30px;
+    font-size: 2.03rem;
+    display: flex;
+}
+.iconos-header div{
+    margin-left: 13px;
+}
+#carro #perfil{
+    float: right;
+}
+#carrito {
+    position: relative;
+    
+    cursor: pointer;
+}
+#contador {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    padding: 3px 5px;
+    color: white;
+    background-color: red;
+    font-size: 0.7rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 50%;
+    display: none;
+}
+#contador.show {
+    display: block;
+}
+/*ESTILOS MENU HAMBURGUESA*/
+.hamburguesa {
+    cursor: pointer;
+}
+#meat {
+    display:none;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    width: 100%;
+    background-color: rgba(37, 37, 37, 0.746);
+}
+#meat.show{
+    display:flex;
+}
+#meat a {
+    font-size: 1.8rem;
+    color: white;
+    text-decoration: none;
+    padding: 8px 0;
+}
+@media(max-width: 768px){
+    .hamburguesa{
+        display: inline;
+    }
+    .navbar {
+        height: 8vh;
+    }
+    .navbar h2 {
+        display: none;
+    }
+    .iconos-header{
+        display: none;
+    }
+    #prueba{
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+/*ESTILOS CARRITO*/
+#dropdown {
+    position: absolute;
+    max-width: 350px;
+    margin-top: 10px;
+    top: 100%;
+    left: calc(100% - 120px);
+    background-color: white;
+    padding: 12px;
+    z-index: 10;
+    border-radius: 8px;
+}
+#dropdown.show{
+    display: inline;
+}
+.item-carro {
+    display:flex;
+    align-items: center;
+    font-size: 12px;
+}
+.cantidad {
+    border-radius: 50%;
+    padding: 5px 7px;
+    background-color: rgb(73, 73, 73);
+    font-weight: bold;
+    color:white
+}
+/*ESTILOS BANNER SLIDESHOW*/
+#banner{
+    width: 100%;
+    position: relative;
+    padding-top: 8vh;
+}
+.foto{
+    width: 100%;
+    height: 100%;
+    
+}
+.arrow{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    margin: 20px;
+}
+.arrow:hover {
+    transform: scale(1.2);
+  }
+#next{
+    top: 40%;
+    right: 0px;
+}
+#previous{
+    top: 40%;
+    left: 0px;
+}
+/*ESTILOS COMPRA*/
+.pic{
+    width: 100%;
+    height: 100%;
+}
+.picsound{
+    width: 100%;
+    height: 300px;
+}
+.picmerch{
+    width: 300px;
+    height: 335px;
+}
+#compras {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    font-size: 2rem;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+#compras2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    font-size: 2rem;
+    gap: 20px;
+    justify-content: center;
+}
+
+.producto {
+    margin: 0 5px;
+    border-radius: 5px;
+    box-shadow: 0px 1px 12px -12px grey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    transition: transform .2s linear;
+}
+
+.producto:hover{
+    transform: scale(1.03);
+}
+
+.producto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+.producto .price {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 2px 6px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.02rem;
+    background-color: red;
+}
+
+.boton{
+    transition-duration: 0.4s;
+    border: none;
+    opacity: 0.6;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+}
+.boton2{
+    transition-duration: 0.4s;
+    border: none;
+    opacity: 0.6;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+}
+
+.boton:hover {
+    opacity: 1;
+    background-color: gray;
+    color: white;
+    cursor: pointer;
+}
+.boton2:hover {
+    opacity: 1;
+    background-color: gray;
+    color: white;
+    cursor: pointer;
+}
+
+/*ESTILOS CHECKOUT*/
+#check{
+    color: black;
+}
+.basketBody{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 8vh;
+}
+#basket li{
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 15px 8px;
+    margin-bottom: 12px;
+    box-shadow: 0px 0px 15px -5px grey;
+    border-radius: 8px;
+}
+#basket li div {
+    flex: 1;
+}
+#basket li button {
+    background-color: transparent;
+    border: none;
+    margin-left: 10px;
+}
+.boton3{
+    transition-duration: 0.4s;
+    border: none;
+    opacity: 0.6;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    width: 235px;
+}
+.boton3:hover {
+    opacity: 1;
+    background-color: gray;
+    color: white;
+    cursor: pointer;
+}
+/*FOOTER*/
+footer{
+    background-color: black;
+    height: 10vh;
+}

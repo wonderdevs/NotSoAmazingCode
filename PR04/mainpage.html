@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Main Page</title>
+        <meta name="viewport" content="width-device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="styles.css">
+    </head>
+    <body>
+        <header>
+            <div class="navbar">
+                <h1>PLACEHOLDER</h1> <!--Nombre de la pagina con sus diferentes enlaces-->
+                <h2><a href="mainpage.html">Games</a></h2>
+                <h2><a href="soundtracks.html">Soundtracks</a></h2>
+                <h2><a href="merch.html">Merchandise</a></h2>
+                <div class="iconos-header"> <!--Carrito-->
+                    <div id="carrito">
+                        <div onclick="mostrar()">🛒<span id="contador">0</span></div>
+                        <div id="dropdown" hidden> <!--Menu escondido, activado al hacer click en la imagen de carrito-->
+                            <span id="mensaje-carrito" hidden>Your cart is empty</span>
+                            <div id="contenido-carrito"></div>
+                            <div id="acciones-carrito"></div>
+                        </div>
+                    </div>
+                    <div>🧛</div>
+                </div>
+                <div class="hamburguesa" hidden> <!--Menu hamburguesa para cuando la pagina sea pequeña-->
+                    <img onclick="openBurger()" src="img/burguer.png" height="24">
+                </div>
+            </div>
+            <div id="meat" hidden> <!--Contenido del menu hamburguesa para cuando se haga click en la hamburguesa-->
+                <a href="mainpage.html">Games</a>
+                <a href="soundtracks.html">Soundtracks</a>
+                <a href="merch.html">Merchandise</a>
+                <a href="checkout.html">🛒<span id="contadorBurger">0</span></a>
+                <a href="">🧛</a>
+            </div>
+        </header>
+        <div id="banner">
+            <img src="img/f1.jpg" class="foto">
+        </div>
+        <br>
+        <div id="compras">
+            <!--Aqui van los productos-->
+            <div class="producto">
+                <span class="price">12.45€</span>
+                <img src="img/nier.jpg" alt="nier" class="pic">
+                <button item="0" class="boton" onclick="comprando(event)">Buy!</button>
+            </div>
+            <div class="producto">
+                <img src="img/automata.jpg" alt="automata" class="pic">
+                <button item="1" class="boton" onclick="comprando(event)">Buy!</button>
+            </div>
+            <div class="producto">
+                <img src="img/tlou.jpg" alt="tlou" class="pic">
+                <button item="2" class="boton" onclick="comprando(event)">Buy!</button>
+            </div>
+            <div class="producto">
+                <img  src="img/uncharted.jpg" alt="uncharted" class="pic">
+                <button item="3" class="boton" onclick="comprando(event)">Buy!</button>
+            </div>
+            <div class="producto">
+                <img  src="img/p5.jpg" alt="p5" class="pic" id="prueba">
+                <button item="4" class="boton" onclick="comprando(event)">Buy!</button>
+            </div>
+            <div class="producto">
+                <img  src="img/tlou2.jpg" alt="tlou2" class="pic" id="prueba">
+                <button item="15" class="boton" onclick="comprando(event)">Buy!</button>
+            </div>
+        </div>
+        <br>
+        <br>
+        <footer>
+        </footer>
+    </body>
+    <script src="script.js"></script> <!--Cargamos el script despues de cargar la página-->
+</html>
