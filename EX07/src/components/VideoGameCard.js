@@ -4,7 +4,7 @@ import styles from './VideoGameCard.module.css'
 export default function VideoGameCard({game}) {
 
     return (
-        <Link key={game.id} to={'/game/'+game.id}>
+        <Link key={game.id} to={'/game/'+game.id} className='cardLink'>
             <div className={styles.card}>
                 <p className={styles.name}>{game.name}</p>
 
