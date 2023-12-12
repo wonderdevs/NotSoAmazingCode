@@ -8,9 +8,10 @@
     max-height: 300px;
     overflow: hidden;
     position: relative;
+    border-radius: 4px;
 }
 .cover-image img{
-    border-radius: 4px;
+    width: 100%;
 }
 
 .cover-image h1 {

@@ -13,12 +13,18 @@ footer {
   padding: 10px 0;
 }
 
+.App {
+  max-width: 1035px;
+  margin: 0 auto;
+}
+
 .listHeader {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   padding: 10px 0;
   border-bottom: 1px dashed rgba(233,233,233,0.4);
+  margin-bottom: 10px;
 }
 
 

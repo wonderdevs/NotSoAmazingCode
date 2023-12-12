@@ -30,7 +30,22 @@ export default function Game() {
                 </div>
                 <div>
                     <div dangerouslySetInnerHTML={details.description}></div>
-                    <div></div>
+                    <div>
+                        <h4>Details</h4>
+                        <div>Achievements: {details.achievements_count}</div>
+                        <div>Developers: {details.developers.map((developer) => (
+                                <>{developer.name}, </>
+                        ))}</div>
+                        <div>Publishers: {details.publishers.map((publisher) => (
+                                <>{publisher.name}, </>
+                        ))}</div>
+                        <div>Rating: {details.esrb_rating.name}</div>
+                        <ul>
+                        {details.ratings.map(rating => (
+                            <li><small>{rating.title} ({rating.count})</small></li>
+                        ))}
+                        </ul>
+                    </div>
                 </div>
                 <p>Metacritic: {details.metacritic}</p>
             </div>
