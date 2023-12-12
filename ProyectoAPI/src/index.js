@@ -6,18 +6,18 @@ import {
 } from "react-router-dom";
 import './index.css';
 import App from './App';
-import Home from './Home';
-import Game from './Game';
+import MonsterList from './components/MonsterList';
+import Detail from './Detail';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     children: [
-      { index: true, element: <Home /> },
+      { index: true, element: <MonsterList /> },
       {
-        path: "game/:gameId",
-        element: <Game />,
+        path: "detail/:detailId",
+        element: <Detail />,
       },
     ],
   },
