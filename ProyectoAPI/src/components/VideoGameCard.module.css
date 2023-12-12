@@ -1,0 +1,81 @@
+a {
+    color: inherit; /* blue colors for links too */
+    text-decoration: inherit; /* no underline */
+}
+
+.card {
+  width: 190px;
+  height: 254px;
+  background: rgb(38, 38, 38);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.333);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  transition: all .2s;
+}
+
+.card:hover {
+  box-shadow: 0px 5px 10px rgba(155, 155, 155, 0.333);
+}
+
+.card .name {
+  height: 70px;
+  width: 100%;
+  background-color: #ff5858;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 8px 8px;
+  color: #262626;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.card .cover {
+  border-color: #141414;
+  background-color: #414141;
+  width: 180px;
+  height: 130px;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+}
+
+.card .cover img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.card .cover .rating {
+  position: absolute;
+  z-index: 2;
+  bottom: 3px;
+  right: 4px;
+  background-color: #444;
+  border-radius: 4px;
+  padding: 0px 4px 2px;
+  border: 1px solid black;
+}
+
+.card .tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.card .tags small {
+  border-radius: 4px;
+  padding: 0 4px;
+  margin: 0 2px;
+  background-color: #868686;
+  color: black;
+  text-transform: uppercase;
+  font-size: .6rem;
+}

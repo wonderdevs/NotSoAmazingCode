@@ -1,0 +1,24 @@
+.details {
+    display: flex;
+    flex-direction: column;
+}
+
+.cover-image {
+    height: 30%;
+    max-height: 300px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 4px;
+}
+.cover-image img{
+    width: 100%;
+}
+
+.cover-image h1 {
+    position: absolute;
+    bottom: 0px;
+    z-index: 3;
+    color: black;
+    padding: 10px;
+    background: aliceblue;
+}
