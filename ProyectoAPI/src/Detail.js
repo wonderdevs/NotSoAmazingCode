@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 
 import './Detail.css';
 import { MonsterContext } from "./App";
+import placeholder from "./comingSoon.jpg";
 
 export default function Detail() {
     const {detailId} = useParams();
@@ -45,6 +46,9 @@ export default function Detail() {
                             <li key={env}><small>{env}</small></li>
                         ))}
                         </ul>
+                        <div>
+                            <img src={details.img_main || placeholder} alt="cover" width={'100%'} />
+                        </div>
                     </div>
                 </div>
             </div>

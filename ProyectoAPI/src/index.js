@@ -15,10 +15,7 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       { index: true, element: <MonsterList /> },
-      {
-        path: "detail/:detailId",
-        element: <Detail />,
-      },
+      { path: "detail/:detailId", element: <Detail /> },
     ],
   },
 ]);

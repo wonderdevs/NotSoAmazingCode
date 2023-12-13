@@ -3,6 +3,7 @@ import { useContext, useEffect } from 'react';
 import { MonsterContext } from '../App';
 import VideoGameCard from './MonsterCard';
 import Pagination from './Pagination';
+import SearchBar from './SearchBar';
 
 import styles from './MonsterList.module.css';
 
@@ -23,7 +24,9 @@ export default function MonsterList () {
         <div>
             {page && 
                 <div>
-                    <Pagination />
+                    <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                        <Pagination /> <SearchBar />
+                    </div>
                     <div className={styles.gameList}>
                         {page.results.map(monster => 
                             <VideoGameCard key={monster.slug} monster={monster} />
