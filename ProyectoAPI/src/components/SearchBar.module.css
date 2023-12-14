@@ -3,6 +3,10 @@
   --size-button: 40px;
   color: white;
   margin: 5px 0;
+  display: flex;
+  gap: 11px;
+  align-items: center;
+  width: 420px;
 }
 
 .input {
@@ -22,7 +26,7 @@
 
 .input:focus,
 .input:not(:invalid) {
-  width: 200px;
+  width: 240px;
   cursor: text;
   box-shadow: 0px 0px 0px #0e0e0e, 0px 0px 0px rgb(95 94 94 / 25%);
 }
@@ -52,8 +56,88 @@
   position: absolute;
   width: 24px;
   height: 100%;
-  right: 6px;
+  right: 190px;
   top: 0;
   padding: 0px 0px 0px 12px;
   cursor: pointer;
+}
+
+.arrow {
+  width: 0;
+  height: 0;
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+  border-bottom: 9px solid rgb(31, 33, 38);
+  margin: 0 0 0 253px;
+}
+
+.filters {
+  position: relative;
+  border: 1px solid rgb(31, 33, 38);
+  background-color: rgb(31, 33, 38);
+  border-radius: 6px;
+  padding: 10px;
+}
+
+.applyFilters {
+  position: absolute;
+  right: 8px;
+  top: 7px;
+}
+
+
+.selectdiv {
+  position: relative;
+  /*Don't really need this just for demo styling*/
+  
+  /* float: left; */
+  min-width: 130px;
+  /* margin: 50px 33%; */
+  
+}
+
+/* IE11 hide native button (thanks Matt!) */
+select::-ms-expand {
+  display: none;
+}
+
+.selectdiv:after {
+  content: url(../../public/img/arrows-sort.svg);
+  /*Adjust for position however you want*/
+  left: -1px;
+  top: -5px;
+  /* padding: 0 0 2px; */
+  /*left line */
+  filter: invert(100%);
+  position: absolute;
+  pointer-events: none;
+}
+
+.selectdiv select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* Add some styling */
+  
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  /* height: 50px; */
+  /* float: right; */
+  /* margin: 5px 0px; */
+  padding: 0px 24px;
+  font-size: 16px;
+  /* line-height: 1.75; */
+  /* color: #333; */
+  color: white;
+  background-color: #131417;
+  background-image: none;
+  border: none;
+  -ms-word-break: normal;
+  word-break: normal;
+  margin-top: -3px;
+}
+
+.selectdiv select option {
+  background-color: #131417;
 }

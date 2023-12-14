@@ -1,0 +1,11 @@
+.checkboxContainer {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.typeGrid {
+    width: 315px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
