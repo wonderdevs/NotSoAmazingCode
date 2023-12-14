@@ -12,7 +12,7 @@ export default function CRSlider () {
                 CR
             </div>
             <label className="slider">
-                <input name='cr' type="range" className="level" value={CRValue} onChange={(e) => setCRValue(parseInt(e.target.value))} step={1} min={-1} max={30}/>
+                <input name='cr' type="range" className="level" defaultValue={-1} onChange={(e) => setCRValue(parseInt(e.target.value))} step={1} min={-1} max={30}/>
             </label>
             <span>{CRValue === -1? 'All':CRValue}</span>
         </div>

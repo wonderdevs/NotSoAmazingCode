@@ -6,11 +6,12 @@
   display: flex;
   gap: 11px;
   align-items: center;
-  width: 420px;
+  width: 100%;
 }
 
 .input {
-  padding-left: var(--size-button);
+  padding-left: 16px;
+  padding-right: 80px;
   height: var(--size-button);
   font-size: 15px;
   border: none;
@@ -26,7 +27,7 @@
 
 .input:focus,
 .input:not(:invalid) {
-  width: 240px;
+  width: 220px;
   cursor: text;
   box-shadow: 0px 0px 0px #0e0e0e, 0px 0px 0px rgb(95 94 94 / 25%);
 }
@@ -38,13 +39,9 @@
 }
 
 .container .icon {
-  position: absolute;
   width: 24px;
   height: 100%;
-  top: 0;
-  left: 0;
-  padding: 0px 0px 0px 12px;
-  pointer-events: none;
+  cursor: pointer;
 }
 
 .container .icon svg, .clear svg {
@@ -56,10 +53,17 @@
   position: absolute;
   width: 24px;
   height: 100%;
-  right: 190px;
+  right: 185px;
   top: 0;
   padding: 0px 0px 0px 12px;
   cursor: pointer;
+}
+
+.filterButton {
+  cursor: pointer;
+  position: absolute;
+  right: 220px;
+  top: 8px;
 }
 
 .arrow {
@@ -68,7 +72,7 @@
   border-left: 9px solid transparent;
   border-right: 9px solid transparent;
   border-bottom: 9px solid rgb(31, 33, 38);
-  margin: 0 0 0 253px;
+  margin: 0 0 0 155px;
 }
 
 .filters {
@@ -76,24 +80,19 @@
   border: 1px solid rgb(31, 33, 38);
   background-color: rgb(31, 33, 38);
   border-radius: 6px;
-  padding: 10px;
+  padding: 7px;
 }
 
 .applyFilters {
   position: absolute;
-  right: 8px;
+  right: 7px;
   top: 7px;
 }
 
 
 .selectdiv {
   position: relative;
-  /*Don't really need this just for demo styling*/
-  
-  /* float: left; */
   min-width: 130px;
-  /* margin: 50px 33%; */
-  
 }
 
 /* IE11 hide native button (thanks Matt!) */
@@ -103,32 +102,23 @@ select::-ms-expand {
 
 .selectdiv:after {
   content: url(../../public/img/arrows-sort.svg);
-  /*Adjust for position however you want*/
   left: -1px;
   top: -5px;
-  /* padding: 0 0 2px; */
-  /*left line */
   filter: invert(100%);
   position: absolute;
   pointer-events: none;
 }
 
 .selectdiv select {
+  cursor: pointer;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  /* Add some styling */
-  
   display: block;
   width: 100%;
   max-width: 320px;
-  /* height: 50px; */
-  /* float: right; */
-  /* margin: 5px 0px; */
-  padding: 0px 24px;
+  padding: 0px 0px 0px 24px;
   font-size: 16px;
-  /* line-height: 1.75; */
-  /* color: #333; */
   color: white;
   background-color: #131417;
   background-image: none;
