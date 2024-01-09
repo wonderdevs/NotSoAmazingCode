@@ -1,3 +1,4 @@
+//This component is used to navigate through pages of monster data.
 import { useContext, useEffect, useState } from 'react';
 import styles from './Pagination.module.css';
 import { MonsterContext } from '../App';
@@ -5,12 +6,14 @@ import { MonsterContext } from '../App';
 const RESULTS_PER_PAGE = 20;
 
 export default function Pagination() {
+    //The Pagination function component uses the useContext hook to access the page, setPage, and setLoading functions from the MonsterContext. It also uses the useState hook to create state variables totalPages and current for storing the total number of pages and the current page number.
     const {page, setPage, setLoading} = useContext(MonsterContext);
     
     const [totalPages, setTotalPages] = useState(0);
     const [current, setCurrent] = useState(1);
 
     const getPage = (URL, number) => {
+        //The getPage function is used to fetch a page of data from a given URL and update the page number. The setLoading function is called to display the loading spinner while the API request is being processed.
         setLoading(true)
         fetch(URL)
         .then(response => { return response.json() })
@@ -29,6 +32,7 @@ export default function Pagination() {
     }
 
     useEffect(() => {
+        //The useEffect hook is used to calculate the total number of pages and reset the current page number when the page data changes. If the current page is the first page, the previous button is disabled. If the current page is the last page, the next button is disabled.
         setTotalPages(Math.ceil(page.count/RESULTS_PER_PAGE))
         if(!page.previous) setCurrent(1)
     }, [page])
