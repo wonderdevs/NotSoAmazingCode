@@ -6,6 +6,7 @@ import Pagination from './Pagination';
 import SearchBar from './SearchBar';
 
 import styles from './MonsterList.module.css';
+import TopTen from './TopTen';
 
 export default function MonsterList () {
     //The MonsterList function component uses the useContext hook to access the setLoading, page, and setPage functions from the MonsterContext.
@@ -25,6 +26,11 @@ export default function MonsterList () {
     return (
         //It checks if page is truthy and if so, it renders a div that includes the Pagination and SearchBar components, and a div with the class "gameList". This div maps over the results in the page to create a MonsterCard component for each monster. If the count of results is zero, it displays a message saying "No items found".
         <div>
+            <div className={styles.topTenContainer}>
+                <TopTen term={'size'} order={'desc'} />
+                <TopTen term={'hit_points'} order={'asc'} />
+                <TopTen term={'intelligence'} />
+            </div>
             {page && 
                 <div>
                     <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
