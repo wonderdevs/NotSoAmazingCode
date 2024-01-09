@@ -5,6 +5,7 @@ import { Link, useParams } from "react-router-dom";
 import './Detail.css';
 import { MonsterContext } from "./App";
 import placeholder from "./comingSoon.jpg";
+import RelatedMonsters from "./components/RelatedMonsters";
 
 export default function Detail() {
     //The Detail function component uses the useParams hook to get the detailId from the route parameters. It uses the useContext hook to access the setLoading function from the MonsterContext. It also uses the useState hook to create a state variable details for storing the monster details.
@@ -53,6 +54,8 @@ export default function Detail() {
                             <img src={details.img_main || placeholder} alt="cover" width={'100%'} />
                         </div>
                     </div>
+                    <hr/>
+                    <RelatedMonsters monster={details} />
                 </div>
             </div>
         }
