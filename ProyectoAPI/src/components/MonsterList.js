@@ -28,7 +28,7 @@ export default function MonsterList () {
             {page && 
                 <div>
                     <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'start' }}>
-                        <SearchBar /> <Pagination />
+                        <SearchBar />
                     </div>
                     <div className={styles.gameList}>
                         {page.results.map(monster => 
@@ -41,7 +41,9 @@ export default function MonsterList () {
                             </>
                         }
                     </div>
+                    <div style={{display: 'flex', justifyContent: 'center'}}>
                     <Pagination />
+                    </div>
                 </div>
             }
         </div>
