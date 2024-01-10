@@ -5,7 +5,8 @@ export default function TopTen({term, order}) {
     const [topTen, setTopTen] = useState([]);
 
     useEffect(() => {
-        let orderTerm = (order==='desc')? '-':'';
+        let orderTerm = (order === 'desc')? '-' : '';
+
         fetch(`https://api.open5e.com/v1/monsters/?ordering=${orderTerm}${term}&limit=10`)
             .then(response => { return response.json() })
             .then((results) => {

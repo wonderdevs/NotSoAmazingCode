@@ -28,8 +28,8 @@ export default function MonsterList () {
         <div>
             <div className={styles.topTenContainer}>
                 <TopTen term={'size'} order={'desc'} />
-                <TopTen term={'hit_points'} order={'asc'} />
-                <TopTen term={'intelligence'} />
+                <TopTen term={'hit_points'} order={'desc'} />
+                <TopTen term={'intelligence'} order={'desc'}/>
             </div>
             {page && 
                 <div>
