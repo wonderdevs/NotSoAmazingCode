@@ -52,11 +52,4 @@ function App() {
 export default App;
 
 //TODO
-// Add a top ten list of the monsters with highest sizes on the home page
-// Add related content to details page (monsters with same alignment for example)
-
 //cuando hacemos una busqueda deberia salir en el link un /search/aboleth por ejemplo, igual hacemos en detalles
-//navbar tendria que llevar a algun sitio cuando se hace click, entonces ha sugerido, aunque se repita, poner tipo los diferentes tipos de monstruos y cuando hagas click que se muestre esos
-//dijo que si quisiera podia hacer que el filtro solo se pudiese activar si hubiese una palabra de busqueda, pero que no hacia falta en si
-//mover lo de pagination abajo
-//un botón para volver arriba de la pagina

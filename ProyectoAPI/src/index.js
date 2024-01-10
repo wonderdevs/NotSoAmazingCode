@@ -8,6 +8,7 @@ import './index.css';
 import App from './App';
 import MonsterList from './components/MonsterList';
 import Detail from './Detail';
+import About from './About';
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <MonsterList /> },
       { path: "detail/:detailId", element: <Detail /> },
+      { path: "about", element: <About /> },
     ],
   },
 ]);
