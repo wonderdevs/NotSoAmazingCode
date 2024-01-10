@@ -33,8 +33,8 @@ export default function MonsterList () {
             </div>
             {page && 
                 <div>
-                    <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                        <Pagination /> <SearchBar />
+                    <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'start' }}>
+                        <SearchBar />
                     </div>
                     <div className={styles.gameList}>
                         {page.results.map(monster => 
@@ -46,6 +46,9 @@ export default function MonsterList () {
                                 No items found
                             </>
                         }
+                    </div>
+                    <div style={{display: 'flex', justifyContent: 'center'}}>
+                    <Pagination />
                     </div>
                 </div>
             }
