@@ -76,7 +76,7 @@
 }
 
 .filters {
-  position: relative;
+  position: absolute;
   border: 1px solid rgb(31, 33, 38);
   background-color: rgb(31, 33, 38);
   border-radius: 6px;

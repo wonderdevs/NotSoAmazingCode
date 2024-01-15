@@ -1,4 +1,5 @@
 import { useContext, useRef, useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 import styles from './SearchBar.module.css';
 import { MonsterContext } from '../App';
@@ -10,6 +11,7 @@ export default function SearchBar() {
     const {setPage, setLoading} = useContext(MonsterContext);
     const [activeFilters, setActiveFilters] = useState(false);
     const formRef = useRef();
+    const navigate = useNavigate();
 
     const searchMonster = (event) => {
         //The searchMonster function is an event handler for form submission. It prevents the default form submission behavior, retrieves the search term, challenge rating (cr), and types from the form, and constructs a URL for the API request.
@@ -31,7 +33,10 @@ export default function SearchBar() {
 
         fetch(searchAPI)
             .then(response => {return response.json()})
-            .then(result => {setPage(result)})
+            .then(result => {
+                setPage(result)
+                navigate(`/search/${term}`)
+            })
             .finally(() => {
                 setLoading(false)
             });
@@ -41,7 +46,7 @@ export default function SearchBar() {
         //The clearSearch function is an event handler for the clear button. It resets the form and calls the searchMonster function.
         formRef.current.reset();
         setActiveFilters(false);
-        searchMonster(event);
+        navigate('/');
     }
 
     const toggleFilters = () => {

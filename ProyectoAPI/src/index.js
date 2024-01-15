@@ -9,6 +9,8 @@ import App from './App';
 import MonsterList from './components/MonsterList';
 import Detail from './Detail';
 import About from './About';
+import SearchResults from './SearchResults';
+import Documents from './components//Documents';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +20,8 @@ const router = createBrowserRouter([
       { index: true, element: <MonsterList /> },
       { path: "detail/:detailId", element: <Detail /> },
       { path: "about", element: <About /> },
+      { path: "search/:searchTerm?", element: <SearchResults /> },
+      { path: "documents", element: <Documents /> },
     ],
   },
 ]);
