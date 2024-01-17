@@ -20,10 +20,11 @@ export default function Documents() {
             <h1>Documents</h1>
             {documents && documents.results.map(document => 
                 <div key={document.slug}>
-                    <h2>{document.title}</h2>
-                    <p>{document.organization}</p>
-                    <p>{document.author}</p>
-                    <p>{document.url}</p>
+                    <p>______________________</p>
+                    <h2>Title: {document.title}</h2>
+                    <p>Organization: {document.organization}</p>
+                    <p>Author: {document.author}</p>
+                    <p>URL: {document.url}</p>   
                 </div>
             )}
         </>
