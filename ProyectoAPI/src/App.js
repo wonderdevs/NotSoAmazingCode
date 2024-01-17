@@ -4,7 +4,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import { Outlet, ScrollRestoration } from "react-router-dom";
 
-export const MonsterContext = createContext(null);
+export const MonsterContext = createContext(null); // This is the MonsterContext. It is used to store the page, searchTerm, and loading state variables and the setPage, setSearchTerm, and setLoading functions.
 
 function App() {
   // This is the App component. It is used to display the header, footer, and the rest of the components.
