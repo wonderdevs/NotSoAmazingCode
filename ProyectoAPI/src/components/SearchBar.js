@@ -7,15 +7,14 @@ import CRSlider from './CRSlider';
 import TypeSelect from './TypeSelect';
 
 export default function SearchBar() {
-    //The SearchBar function component uses the useContext hook to access the setPage and setLoading functions from the MonsterContext. It also uses the useRef hook to create a reference to the form in the component.
+    // This is the SearchBar component. It is used to search the monsters from the API.
     const {setPage, setLoading} = useContext(MonsterContext);
     const [activeFilters, setActiveFilters] = useState(false);
     const formRef = useRef();
     const navigate = useNavigate();
 
     const searchMonster = (event) => {
-        //The searchMonster function is an event handler for form submission. It prevents the default form submission behavior, retrieves the search term, challenge rating (cr), and types from the form, and constructs a URL for the API request.
-        event.preventDefault();
+       event.preventDefault();
         const term = formRef.current.term.value;
         const order = formRef.current.order.value;
         const cr = activeFilters && formRef.current.cr.value>=0? formRef.current.cr.value: '';
@@ -43,8 +42,7 @@ export default function SearchBar() {
     }
 
     const clearSearch = (event) => {
-        //The clearSearch function is an event handler for the clear button. It resets the form and calls the searchMonster function.
-        formRef.current.reset();
+       formRef.current.reset();
         setActiveFilters(false);
         navigate('/');
     }
@@ -54,8 +52,7 @@ export default function SearchBar() {
     }
 
     return (
-        //The SearchBar component returns a form with a search input, a challenge rating input, a list of checkboxes for monster types, and a search button. The form is submitted when the user clicks the search button or presses the enter key. The form is reset when the user clicks the clear button.
-        <div className={styles.searchBar}>
+       <div className={styles.searchBar}>
             <form onSubmit={searchMonster} ref={formRef}>
                 <div className={styles.container}>
                     <input type="search" name='term' className={styles.input} placeholder="Search a monster..." />

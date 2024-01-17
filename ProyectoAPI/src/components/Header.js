@@ -4,6 +4,7 @@ import SearchBar from "./SearchBar";
 export default function Header () {
 
     return (
+        // This is the header component. It is used to display the title of the website and the navigation bar.
         <>
             <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
                 <h1>Not So Amazing Monsters</h1>

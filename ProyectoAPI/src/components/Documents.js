@@ -2,11 +2,12 @@ import React, {useContext, useEffect, useState} from 'react';
 import { MonsterContext } from '../App';
 
 export default function Documents() {
+    //This is the Documents component. It is used to display the documents used from the API.
     const {setLoading} = useContext(MonsterContext);
     const [documents, setDocuments] = useState(null);
 
     useEffect(() => {
-        //The useEffect hook is used to fetch the list of monsters from an API when the component mounts.
+        // This function is used to fetch the documents from the API.
         setLoading(true);
         fetch('https://api.open5e.com/v1/documents/')
             .then(response => { return response.json() })
@@ -16,6 +17,7 @@ export default function Documents() {
             })
       }, [setLoading])
     return (
+        // This returns the documents from the API with their title, organization, author, and url.
         <>
             <h1>Documents</h1>
             {documents && documents.results.map(document => 

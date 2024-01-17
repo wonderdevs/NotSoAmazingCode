@@ -1,4 +1,5 @@
 export default function About() {
+    //This is the About component. It is used to display the about page.
     return (
         <div>
             <h1>About</h1>

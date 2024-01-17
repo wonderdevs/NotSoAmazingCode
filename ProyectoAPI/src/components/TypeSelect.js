@@ -1,6 +1,7 @@
 import styles from './TypeSelect.module.css';
 
 export default function TypeSelect() {
+    // This is the TypeSelect component. It is used to select the type of monster from the API.
 
     return(
         <div style={{display: 'flex', alignItems: 'start'}}>

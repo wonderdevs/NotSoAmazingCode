@@ -4,6 +4,7 @@ import styles from './RelatedMonsters.module.css';
 import placeholder from '../comingSoon.jpg'
 
 export default function RelatedMonsters ({monster}) {
+    //This function shows related mosnters based on the CR of the monster you are viewing.
     const [related, setRelated] = useState([]);
 
     const shuffleArray = array => {
@@ -17,7 +18,6 @@ export default function RelatedMonsters ({monster}) {
       
 
     useEffect(() => {
-        // fetch(`https://api.open5e.com/v1/monsters/?type__iexact=${type}&limit=5`)
         fetch(`https://api.open5e.com/v1/monsters/?cr__range=${monster.cr-1},${monster.cr+1}`)
             .then(response => { return response.json() })
             .then((results) => {

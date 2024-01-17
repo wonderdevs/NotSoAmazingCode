@@ -1,19 +1,17 @@
-//This component is used to display a list of monsters.
 import { useContext, useEffect } from 'react';
 import { MonsterContext } from '../App';
 import MonsterCard from './MonsterCard';
 import Pagination from './Pagination';
-// import SearchBar from './SearchBar';
 
 import styles from './MonsterList.module.css';
 import TopTen from './TopTen';
 
 export default function MonsterList () {
-    //The MonsterList function component uses the useContext hook to access the setLoading, page, and setPage functions from the MonsterContext.
+    // This is the MonsterList component. It is used to display the monsters from the API.
     const {setLoading, page, setPage} = useContext(MonsterContext);
 
     useEffect(() => {
-        //The useEffect hook is used to fetch the list of monsters from an API when the component mounts.
+        // This function is used to fetch the monsters from the API.
         setLoading(true);
         fetch('https://api.open5e.com/v1/monsters/')
             .then(response => { return response.json() })
@@ -24,7 +22,7 @@ export default function MonsterList () {
       }, [setPage, setLoading])
 
     return (
-        //It checks if page is truthy and if so, it renders a div that includes the Pagination and SearchBar components, and a div with the class "gameList". This div maps over the results in the page to create a MonsterCard component for each monster. If the count of results is zero, it displays a message saying "No items found".
+        // TopTen is used to display the top ten monsters by size, hit points, and intelligence. MonsterCard is used to display the monsters from the API with their name, hit points, and image. Pagination is used to display the pagination for the monsters.
         <div>
             <div className={styles.topTenContainer}>
                 <TopTen term={'size'} order={'desc'} />
@@ -33,9 +31,6 @@ export default function MonsterList () {
             </div>
             {page && 
                 <div>
-                    {/* <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'start' }}>
-                        <SearchBar />
-                    </div> */}
                     <div className={styles.gameList}>
                         {page.results.map(monster => 
                             <MonsterCard key={monster.slug} monster={monster} />

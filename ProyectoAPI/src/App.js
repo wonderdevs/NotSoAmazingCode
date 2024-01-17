@@ -5,10 +5,9 @@ import Footer from './components/Footer';
 import { Outlet, ScrollRestoration } from "react-router-dom";
 
 export const MonsterContext = createContext(null);
-//The MonsterContext is created using createContext and exported for use in other components. This context will be used to share state and functions between components.
 
 function App() {
-//The App function component uses the useState hook to create state variables page, searchTerm, and loading. page is used to store the current page of data, searchTerm is used to store the current search term, and loading is used to store whether the app is currently loading data.
+  // This is the App component. It is used to display the header, footer, and the rest of the components.
   const [page, setPage] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(false);
@@ -17,6 +16,7 @@ function App() {
   window.onscroll = function() {scrollFunction()};
 
   function scrollFunction() {
+    // This function is used to display the scroll to top button.
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
       topButton.current.style.display = "block";
     } else {
@@ -25,11 +25,11 @@ function App() {
   }
 
   const topFunction = () => {
+    // This function is used to scroll to the top of the page.
     window.scrollTo(0, 0);
   }
 
   return (
-    //This includes a MonsterContext.Provider component that provides the state variables and their setter functions to its child components. The value prop of the MonsterContext.Provider is an object containing the state variables and their setter functions.
     <div className="App">
       <MonsterContext.Provider value={{
         page, setPage,
