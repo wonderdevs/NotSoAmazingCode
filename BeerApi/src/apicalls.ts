@@ -3,8 +3,8 @@ import { BeerType, urlParams } from "./interfaces";
 const API_URL = "https://api.punkapi.com/v2/";
 
 const api = {
-    get: async (url: string) => {
-        return fetch(API_URL + url, {
+    get: async (query: string) => {
+        return fetch(API_URL + query, {
             method: "GET",
         }).then(readResponse);
     }
