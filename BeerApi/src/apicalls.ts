@@ -17,8 +17,9 @@ function readResponse(res: Response): Promise<any> {
 
 function prepParams(parameters: urlParams): string {
     let paramsString = '?';
-    Object.entries(parameters).map((item) => {
-        paramsString + item[0] + '=' + item[1];
+    Object.entries(parameters).map((item, index) => {
+        if (index > 0) paramsString+='&';
+        paramsString += item[0] + '=' + item[1];
         console.log('item', item);
     })
     return paramsString;
