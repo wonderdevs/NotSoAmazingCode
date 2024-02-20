@@ -1,21 +1,22 @@
 import "./App.css";
 import Beer from "./components/Beer";
-import { useEffect, useState } from "react";
+import useFetchBeers from "./useFetchBeer";
 
 function App() {
-  const [beers, setBeer] = useState(null);
+  const { data: beers, isLoading, error } = useFetchBeers();
 
-  useEffect(() => {
-    fetch("https://api.punkapi.com/v2/beers")
-      .then((res) => res.json())
-      .then((data) => setBeer(data));
-  }, []);
   return (
     <>
       <h1 className="page-title">Beers</h1>
-      <Beer beers={beers} />
+      {isLoading ? (
+        <div className="loader">Loading...</div>
+      ) : error ? (
+        <div className="error-message">{error}</div>
+      ) : (
+        <Beer beers={beers} />
+      )}
     </>
   );
 }
 
-export default App
+export default App;
